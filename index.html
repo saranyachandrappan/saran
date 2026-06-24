@@ -1,14 +1,129 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>
-        website
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saranyachandrappan Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 1px;
+        }
+        header p {
+            margin: 16px auto 0;
+            max-width: 720px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            background: #22d3ee;
+        }
+        .section {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 18px;
+            padding: 32px;
+            margin-top: 30px;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.3);
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #e2e8f0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.10);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin: 12px 0 0;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <h1>browny</h1>
-    <strong>hello meow</strong>
-    <h3>    <marquee>Hii Guys</marquee></h3>
-    <h3> hello </h3>
-    <h2> goodbye </h2>
+    <div class="container">
+        <header>
+            <p>Welcome to my portfolio website.</p>
+            <h1>Saranyachandrappan</h1>
+            <p>Full-stack web developer and creative technologist crafting modern experiences with clean design, strong performance, and thoughtful interaction.</p>
+            <a class="button" href="#projects">Explore My Work</a>
+        </header>
+
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>
+                I am Saranyachandrappan, a passionate developer with a focus on building polished web applications.
+                I enjoy turning ideas into elegant and responsive user experiences using HTML, CSS, JavaScript, and related tools.
+            </p>
+        </section>
+
+        <section class="section" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio site showcasing projects, skills, and contact information with a strong visual design.</p>
+                </div>
+                <div class="card">
+                    <h3>Web App Prototype</h3>
+                    <p>A responsive interface built for collaboration, productivity, or data visualization, optimized for desktop and mobile.</p>
+                </div>
+                <div class="card">
+                    <h3>Interactive Landing Page</h3>
+                    <p>High-impact landing page with animations, a clear value proposition, and a focused call-to-action.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to connect or collaborate, feel free to reach out and say hello.</p>
+        </section>
+    </div>
 </body>
 </html>
