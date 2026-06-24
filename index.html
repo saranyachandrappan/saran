@@ -1,133 +1,266 @@
 <!DOCTYPE html>
-<html lang="Tamil">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saranyachandrappan Portfolio</title>
+    <title>Saranya Chandrappan | Portfolio</title>
     <style>
+        :root {
+            --bg: #f7f1e9;
+            --card: #ffffff;
+            --text: #222222;
+            --muted: #6d6b64;
+            --accent: #b2873d;
+            --border: #e4d9cd;
+        }
+        * {
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1d4ed8);
-            color: #f8fafc;
-            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
-        .container {
-            max-width: 960px;
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(178, 135, 61, 0.15), transparent 25%),
+                        radial-gradient(circle at bottom right, rgba(34, 34, 34, 0.1), transparent 20%);
+            pointer-events: none;
+        }
+        .page {
+            position: relative;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 24px 80px;
         }
         header {
-            text-align: center;
-            padding: 80px 0 40px;
+            display: grid;
+            gap: 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
         }
-        header h1 {
+        .intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+        }
+        .intro-text {
+            flex: 1 1 320px;
+        }
+        .tagline {
             margin: 0;
-            font-size: 3rem;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
         }
-        header p {
-            margin: 16px auto 0;
+        h1 {
+            margin: 0.25rem 0 0;
+            font-size: clamp(2.75rem, 4vw, 4.2rem);
+        }
+        p.lead {
+            margin: 16px 0 0;
             max-width: 720px;
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+        .profile-card {
+            min-width: 220px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 22px;
+            background: #fff;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+        }
+        .profile-card h2 {
+            margin-top: 0;
             font-size: 1.1rem;
-            line-height: 1.7;
-            color: #cbd5e1;
+        }
+        .profile-card p {
+            margin: 12px 0 0;
+            color: var(--muted);
         }
         .button {
             display: inline-block;
-            margin-top: 28px;
-            padding: 14px 28px;
+            padding: 14px 26px;
+            margin-top: 18px;
+            border: 2px solid var(--accent);
             border-radius: 999px;
-            background: #38bdf8;
-            color: #0f172a;
             text-decoration: none;
+            color: var(--accent);
             font-weight: 700;
-            transition: transform 0.2s ease, background 0.2s ease;
+            transition: background 0.2s ease, color 0.2s ease;
         }
         .button:hover {
-            transform: translateY(-2px);
-            background: #22d3ee;
+            background: var(--accent);
+            color: #ffffff;
         }
         .section {
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 18px;
-            padding: 32px;
-            margin-top: 30px;
-            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.3);
+            margin-top: 28px;
         }
-        .section h2 {
-            margin-top: 0;
-            color: #e2e8f0;
+        .section > h2 {
+            margin-bottom: 16px;
+            font-size: 1.65rem;
         }
-        .grid {
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 24px;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.10);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.04);
         }
         .card h3 {
             margin-top: 0;
         }
-        .card p {
-            margin: 12px 0 0;
-            color: #cbd5e1;
-            line-height: 1.6;
+        .card p,
+        .card li {
+            color: var(--muted);
+        }
+        .split {
+            display: grid;
+            gap: 20px;
+        }
+        .split-two {
+            grid-template-columns: 1fr 1fr;
+        }
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(140px, 1fr));
+            gap: 10px;
+        }
+        .skill {
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: #fcfaf6;
+            font-weight: 600;
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+        .contact-list li {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 600;
+        }
+        .contact-list a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .contact-list a:hover {
+            color: var(--accent);
+        }
+        .small-text {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        @media (max-width: 860px) {
+            .split-two {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="page">
         <header>
-            <p>Welcome to my portfolio website.</p>
-            <h1>Saranyachandrappan</h1>
-            <p>Full-stack web developer and creative technologist crafting modern experiences with clean design, strong performance, and thoughtful interaction.</p>
-            <a class="button" href="#projects">Explore My Work</a>
+            <div class="intro">
+                <div class="intro-text">
+                    <p class="tagline">Student | Web Developer | Designer</p>
+                    <h1>Saranya Chandrappan</h1>
+                    <p class="lead">I build elegant, user-centered websites and portfolio experiences with a clean visual style. Currently focused on front-end development, UI design, and small business website solutions.</p>
+                    <a class="button" href="#contact">Get in Touch</a>
+                </div>
+                <aside class="profile-card">
+                    <h2>Contact</h2>
+                    <p>Email: <a href="mailto:saranya.chandrappan@example.com">saranya.chandrappan@example.com</a></p>
+                    <p>Phone: +91 98765 43210</p>
+                    <p class="small-text">Based in Chennai, India</p>
+                </aside>
+            </div>
         </header>
 
         <section class="section" id="about">
             <h2>About Me</h2>
-            <p>
-                I am Saranyachandrappan, a passionate developer with a focus on building polished web applications.
-                I enjoy turning ideas into elegant and responsive user experiences using HTML, CSS, JavaScript, and related tools.
-            </p>
+            <div class="card">
+                <p>I am a student and aspiring web developer with a strong interest in creating polished digital resumes and portfolio websites. I enjoy using HTML, CSS, and JavaScript to craft responsive, accessible, and modern web pages that highlight skills, projects, and achievements.</p>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <h2>Experience</h2>
+            <div class="card-grid split split-two">
+                <div class="card">
+                    <h3>Freelance Web Design</h3>
+                    <p class="small-text">2024 – Present</p>
+                    <p>Designed several student portfolio and CV sites with a focus on readability, mobile-first layouts, and brand consistency.</p>
+                </div>
+                <div class="card">
+                    <h3>Academic Projects</h3>
+                    <p class="small-text">2023 – 2024</p>
+                    <p>Built web apps and static sites for coursework including e-commerce landing pages, profile dashboards, and interactive information pages.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+
+            </div>
         </section>
 
         <section class="section" id="projects">
-            <h2>Featured Projects</h2>
-            <div class="grid">
+            <h2>Selected Projects</h2>
+            <div class="card-grid">
                 <div class="card">
-                    <h3>Portfolio Website</h3>
-                    <p>A personal portfolio site showcasing projects, skills, and contact information with a strong visual design.</p>
+                    <h3>Student CV Resume</h3>
+                    <p class="small-text">Portfolio / Resume Template</p>
+                    <p>Created a clean white and beige resume website that presents experience, education, and skills in a modern easy-to-read layout.</p>
                 </div>
                 <div class="card">
-                    <h3>Web App Prototype</h3>
-                    <p>A responsive interface built for collaboration, productivity, or data visualization, optimized for desktop and mobile.</p>
-                </div>
-                <div class="card">
-                    <h3>Interactive Landing Page</h3>
-                    <p>High-impact landing page with animations, a clear value proposition, and a focused call-to-action.</p>
+                    <h3>Portfolio Showcase</h3>
+                    <p class="small-text">Personal Website</p>
+                    <p>Developed a one-page portfolio site highlighting personal projects, design abilities, and contact details with strong visual hierarchy.</p>
                 </div>
             </div>
         </section>
 
         <section class="section" id="contact">
             <h2>Contact</h2>
-            <p>If you'd like to connect or collaborate, feel free to reach out and say hello.</p>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            <p>
-                <a href="mailto:saranyachandrappan@example.com">
-                    <i class="fas fa-envelope"></i> Email Me
+            <div class="card split-two">
+                <div>
+                    <p>If you would like to discuss a website project, internship, or collaboration, please reach out by email or phone.</p>
+                </div>
+                <div>
+                    <ul class="contact-list">
+                        <li>Email: <a href="mailto:saranya.chandrappan@example.com">saranya.chandrappan@example.com</a></li>
+                        <li>Phone: +91 98765 43210</li>
+                        <li>Location: Chennai, India</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-    </div>
+    </main>
 </body>
 </html>
